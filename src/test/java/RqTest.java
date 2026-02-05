@@ -46,5 +46,13 @@ public class RqTest {
         assertThat(rst).isEqualTo("title");
     }
 
+    @Test
+    @DisplayName(value = "명령:목록?page=1 일때 rq.getParamAsInt(\"page\") ->1")
+    void t6(){
+        Rq rq = new Rq("목록?page=1");
+        String rst=rq.getParamAsInt("page");
+        assertThat(rst).isEqualTo(1);
+    }
+
 
 }
