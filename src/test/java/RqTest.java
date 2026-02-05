@@ -54,5 +54,21 @@ public class RqTest {
         assertThat(rst).isEqualTo(1);
     }
 
+    @Test
+    @DisplayName(value = "명령:목록?page=10 일때 rq.getParamAsInt(\"page\") ->10")
+    void t7(){
+        Rq rq = new Rq("목록?page=10");
+        int rst=rq.getparamAsInt("page");
+        assertThat(rst).isEqualTo(10);
+    }
+    @Test
+    @DisplayName(value = "명령:목록?keyword=자바&keywordType=title&page=1 일때 rq.getParam(\"keyword\") ->title")
+    void t8(){
+        Rq rq = new Rq("목록?keyword=자바&keywordType=title");
+        String rst=rq.getParam("keywordType");
+        assertThat(rst).isEqualTo("title");
+    }
+
+
 
 }
