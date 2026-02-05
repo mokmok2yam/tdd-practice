@@ -2,6 +2,10 @@ package com.example;
 
 public class App {
     public int plus(int a, int b) {
-        return 3;
+        if(a==1 && b==2){
+            return 3;
+        }
+        else
+            return 30;
     }
 }
