@@ -3,13 +3,15 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import static org.assertj.core.api.Assertions.*;
+
 public class RqTest {
     @Test
     @DisplayName(value="rq.getActionName()=삭제")
     void t1(){
         Rq rq =new Rq("삭제?id=1");
         String actionName=rq.getActionName();
-        Assertions.assertThat(actionName).isEqualTo("삭제");
+        assertThat(actionName).isEqualTo("삭제");
     }
 
     @Test
@@ -17,7 +19,15 @@ public class RqTest {
     void t2(){
         Rq rq =new Rq("수정?id=1");
         String actionName=rq.getActionName();
-        Assertions.assertThat(actionName).isEqualTo("수정");
+        assertThat(actionName).isEqualTo("수정");
+    }
+
+    @Test
+    @DisplayName(value = "명령:목록?keyword=자바id=일때 rq.getParam(\"keyword\") ->자바")
+    void t3(){
+        Rq rq = new Rq("목록?keyword=자바");
+        String rst=rq.getParam("keyword");
+        assertThat(rst).isEqualTo("자바");
     }
 
 }
