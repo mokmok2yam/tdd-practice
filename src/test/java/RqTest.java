@@ -34,7 +34,7 @@ public class RqTest {
     @DisplayName(value = "명령:목록?keywordType=title일때 rq.getParam(\"keyword\") ->title")
     void t4(){
         Rq rq = new Rq("목록?keywordType=title");
-        String rst=rq.getParam("keyword");
+        String rst=rq.getParam("keywordType");
         assertThat(rst).isEqualTo("title");
     }
 
